@@ -37,13 +37,19 @@ The system SHALL support both stdio and Streamable HTTP transports with runtime 
 - **AND** it SHALL support MCP's Streamable HTTP protocol
 
 ### Requirement: Configuration Management
-The system SHALL support configuration through environment variables for API connectivity.
+The system SHALL support configuration through .env file for API connectivity.
 
-#### Scenario: API credentials loading
+#### Scenario: API credentials loading from .env
 - **WHEN** the server starts
-- **THEN** it SHALL read PAPERLESS_API_URL from environment (default: http://localhost:8000)
-- **AND** it SHALL read PAPERLESS_API_TOKEN from environment (required)
+- **THEN** it SHALL load .env file using python-dotenv
+- **AND** it SHALL read PAPERLESS_API_URL from .env (default: http://localhost:8000)
+- **AND** it SHALL read PAPERLESS_API_TOKEN from .env (required)
 - **AND** it SHALL fail with clear error if PAPERLESS_API_TOKEN is missing
+
+#### Scenario: .env template provided
+- **WHEN** a developer sets up the project
+- **THEN** .env.example SHALL be available as template
+- **AND** .env SHALL be in .gitignore to prevent token leaks
 
 #### Scenario: Configuration validation
 - **WHEN** configuration is loaded

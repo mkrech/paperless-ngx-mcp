@@ -10,7 +10,7 @@ Enable AI assistants in OpenWebUI and other MCP clients to search and interact w
 - Set up OpenWebUI integration via Streamable HTTP
 - Set up VS Code MCP configuration for local testing
 - Use uv for dependency management and ruff for code quality
-- Configure API authentication with token-based auth
+- Configure API authentication with token-based auth via .env file
 
 ## Impact
 - Affected specs: 
@@ -20,6 +20,8 @@ Enable AI assistants in OpenWebUI and other MCP clients to search and interact w
   - `vscode-integration` (new) - VS Code testing configuration
 - Affected code:
   - `main.py` - Replace with MCP server entry point
-  - `pyproject.toml` - Add dependencies (fastmcp, httpx, ruff)
+  - `pyproject.toml` - Add dependencies (fastmcp, httpx, ruff, python-dotenv)
+  - `.env` - Configuration file for API credentials
+  - `.env.example` - Template for configuration
   - `.vscode/mcp-server.json` - New VS Code MCP configuration
   - New module structure for server implementation

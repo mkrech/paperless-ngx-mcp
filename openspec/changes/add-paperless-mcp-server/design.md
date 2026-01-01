@@ -28,15 +28,19 @@ Paperless-NGX is a document management system with a REST API. We need to expose
 - `mcp` official Python SDK - More verbose, requires manual protocol handling
 - Custom implementation - Unnecessary complexity for this use case
 
-### Decision 2: Environment Variables for Configuration
+### Decision 2: .env File for Configuration
 **Rationale**: 
 - API URL and token should not be hardcoded
-- Environment variables are standard for secrets management
+- .env files are standard for local development secrets
 - Easy to change without code modifications
+- python-dotenv automatically loads .env at startup
+- .env file is gitignored for security
 
 **Configuration**:
-- `PAPERLESS_API_URL` - Base URL (default: http://localhost:8000)
-- `PAPERLESS_API_TOKEN` - Authentication token (required)
+- `.env` file in project root with:
+  - `PAPERLESS_API_URL` - Base URL (default: http://localhost:8000)
+  - `PAPERLESS_API_TOKEN` - Authentication token (required)
+- `.env.example` provided as template
 
 ### Decision 3: httpx for HTTP Client
 **Rationale**: Modern async-capable HTTP client, better than requests for MCP server context.

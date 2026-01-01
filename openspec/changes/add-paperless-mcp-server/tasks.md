@@ -1,17 +1,19 @@
 # Implementation Tasks
 
 ## 1. Project Setup
-- [x] 1.1 Update pyproject.toml with fastmcp, httpx, ruff dependencies
+- [x] 1.1 Update pyproject.toml with fastmcp, httpx, ruff, python-dotenv dependencies
 - [x] 1.2 Configure ruff for code formatting and linting
 - [x] 1.3 Add uv.lock if needed
+- [x] 1.4 Create .env and .env.example files
+- [x] 1.5 Add .env to .gitignore
 
 ## 2. MCP Server Core
-- [ ] 2.1 Create src/paperless_ngx_mcp/ module structure
-- [ ] 2.2 Implement main MCP server with fastmcp
-- [ ] 2.3 Add support for stdio transport (default)
-- [ ] 2.4 Add support for Streamable HTTP transport with --port flag
-- [ ] 2.5 Add configuration for API URL and token (environment variables)
-- [ ] 2.6 Update main.py to serve MCP server with transport selection
+- [x] 2.1 Create src/paperless_ngx_mcp/ module structure
+- [x] 2.2 Implement main MCP server with fastmcp
+- [x] 2.3 Add support for stdio transport (default)
+- [x] 2.4 Add support for Streamable HTTP transport with --port flag
+- [x] 2.5 Add configuration for API URL and token (environment variables)
+- [x] 2.6 Update main.py to serve MCP server with transport selection
 
 ## 3. Document Search Tool
 - [ ] 3.1 Implement HTTP client for Paperless-NGX API
