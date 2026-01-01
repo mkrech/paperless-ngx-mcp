@@ -7,6 +7,7 @@ Paperless-NGX is a document management system with a REST API. We need to expose
 
 ### Goals
 - Provide MCP-compliant server for Paperless-NGX integration
+- Support OpenWebUI as primary client via HTTP streaming
 - Implement document search as the first capability
 - Enable local testing through VS Code MCP support
 - Use modern Python tooling (uv, fastmcp, ruff)
@@ -40,16 +41,16 @@ Paperless-NGX is a document management system with a REST API. We need to expose
 ### Decision 3: httpx for HTTP Client
 **Rationale**: Modern async-capable HTTP client, better than requests for MCP server context.
 
-### Decision 4: Support Both stdio and HTTP Transports
+### Decision 4: Support Both stdio and Streamable HTTP Transports
 **Rationale**:
-- stdio for VS Code and local MCP clients (required for VS Code testing)
-- HTTP streaming for web-based integrations and remote access
+- stdio for VS Code and Claude Desktop (local MCP clients)
+- Streamable HTTP for OpenWebUI (MCP's official HTTP transport protocol)
 - fastmcp supports both transports natively
 
 **Implementation**:
 - Default to stdio when no port specified
-- Enable HTTP streaming with --port flag
-- Use Server-Sent Events (SSE) for HTTP streaming
+- Enable Streamable HTTP with --port flag
+- OpenWebUI requires "MCP (Streamable HTTP)" type in configuration
 
 ### Decision 5: Start with Single Tool (search_documents)
 **Rationale**: 
@@ -95,12 +96,12 @@ paperless-ngx-mcp/
 3. API client makes HTTP request to Paperless-NGX
 4. Response is formatted and returned through MCP protocol via stdout
 
-**HTTP streaming mode** (Web clients, remote access):
-1. HTTP client connects to server endpoint
-2. Server-Sent Events (SSE) stream for bidirectional communication
-3. MCP protocol messages exchanged over SSE
+**Streamable HTTP mode** (OpenWebUI):
+1. OpenWebUI connects to server via HTTP endpoint
+2. Uses MCP's Streamable HTTP protocol for bidirectional communication
+3. MCP protocol messages exchanged over HTTP streams
 4. API client makes HTTP request to Paperless-NGX
-5. Response is formatted and streamed back through SSE
+5. Response is formatted and streamed back through Streamable HTTP
 
 ## Risks / Trade-offs
 

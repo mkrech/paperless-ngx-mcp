@@ -15,26 +15,26 @@ The system SHALL provide a Model Context Protocol (MCP) server that exposes Pape
 - **AND** it SHALL handle tool invocation requests
 - **AND** it SHALL return responses in MCP format via stdout
 
-#### Scenario: Server communication via HTTP streaming
+#### Scenario: Server communication via Streamable HTTP
 - **WHEN** an MCP client connects via HTTP
-- **THEN** the server SHALL establish Server-Sent Events (SSE) connection
-- **AND** it SHALL respond to protocol handshake over SSE
+- **THEN** the server SHALL establish Streamable HTTP connection
+- **AND** it SHALL respond to protocol handshake over Streamable HTTP
 - **AND** it SHALL handle tool invocation requests via HTTP
-- **AND** it SHALL stream responses in MCP format
+- **AND** it SHALL stream responses in MCP format using Streamable HTTP protocol
 
 ### Requirement: Transport Configuration
-The system SHALL support both stdio and HTTP streaming transports with runtime selection.
+The system SHALL support both stdio and Streamable HTTP transports with runtime selection.
 
 #### Scenario: Default stdio mode
 - **WHEN** the server starts without --port flag
 - **THEN** it SHALL use stdio transport
 - **AND** it SHALL communicate via stdin/stdout
 
-#### Scenario: HTTP streaming mode
+#### Scenario: Streamable HTTP mode
 - **WHEN** the server starts with --port flag
-- **THEN** it SHALL use HTTP streaming transport
+- **THEN** it SHALL use Streamable HTTP transport
 - **AND** it SHALL listen on the specified port
-- **AND** it SHALL support Server-Sent Events for streaming
+- **AND** it SHALL support MCP's Streamable HTTP protocol
 
 ### Requirement: Configuration Management
 The system SHALL support configuration through environment variables for API connectivity.

@@ -9,7 +9,7 @@
 - [ ] 2.1 Create src/paperless_ngx_mcp/ module structure
 - [ ] 2.2 Implement main MCP server with fastmcp
 - [ ] 2.3 Add support for stdio transport (default)
-- [ ] 2.4 Add support for HTTP streaming with --port flag
+- [ ] 2.4 Add support for Streamable HTTP transport with --port flag
 - [ ] 2.5 Add configuration for API URL and token (environment variables)
 - [ ] 2.6 Update main.py to serve MCP server with transport selection
 
@@ -29,4 +29,6 @@
 - [ ] 5.2 Add example usage documentation for both transports
 - [ ] 5.3 Test search_documents with real Paperless-NGX instance
 - [ ] 5.4 Verify VS Code MCP integration works (stdio)
-- [ ] 5.5 Test HTTP streaming mode with curl or web client
+- [ ] 5.5 Test Streamable HTTP mode with curl or web client
+- [ ] 5.6 Verify OpenWebUI MCP server integration (Type: MCP Streamable HTTP)
+- [ ] 5.7 Document OpenWebUI configuration steps
