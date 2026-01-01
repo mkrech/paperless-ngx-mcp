@@ -1,9 +1,9 @@
 # Implementation Tasks
 
 ## 1. Project Setup
-- [ ] 1.1 Update pyproject.toml with fastmcp, httpx, ruff dependencies
-- [ ] 1.2 Configure ruff for code formatting and linting
-- [ ] 1.3 Add uv.lock if needed
+- [x] 1.1 Update pyproject.toml with fastmcp, httpx, ruff dependencies
+- [x] 1.2 Configure ruff for code formatting and linting
+- [x] 1.3 Add uv.lock if needed
 
 ## 2. MCP Server Core
 - [ ] 2.1 Create src/paperless_ngx_mcp/ module structure

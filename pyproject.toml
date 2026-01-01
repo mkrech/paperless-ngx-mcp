@@ -1,7 +1,37 @@
 [project]
 name = "paperless-ngx-mcp"
 version = "0.1.0"
-description = "Add your description here"
+description = "MCP server for Paperless-NGX document management system"
 readme = "README.md"
-requires-python = ">=3.9"
-dependencies = []
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=2.14.2",
+    "httpx>=0.28.1",
+]
+
+[project.scripts]
+paperless-ngx-mcp = "paperless_ngx_mcp.server:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "N",   # pep8-naming
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+]
+ignore = []
+
+[tool.ruff.lint.isort]
+known-first-party = ["paperless_ngx_mcp"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.8.0",
+]
