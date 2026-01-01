@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "paperless-ngx": {
+      "command": "uv",
+      "args": ["run", "python", "main.py"]
+    }
+  }
+}

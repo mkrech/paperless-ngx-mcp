@@ -16,15 +16,15 @@
 - [x] 2.6 Update main.py to serve MCP server with transport selection
 
 ## 3. Document Search Tool
-- [ ] 3.1 Implement HTTP client for Paperless-NGX API
-- [ ] 3.2 Create search_documents MCP tool
-- [ ] 3.3 Handle pagination and result formatting
-- [ ] 3.4 Add error handling for API failures
+- [x] 3.1 Implement HTTP client for Paperless-NGX API
+- [x] 3.2 Create search_documents MCP tool
+- [x] 3.3 Handle pagination and result formatting
+- [x] 3.4 Add error handling for API failures
 
 ## 4. VS Code Integration
-- [ ] 4.1 Create .vscode/mcp-server.json configuration
-- [ ] 4.2 Document how to test in VS Code
-- [ ] 4.3 Add sample environment configuration
+- [x] 4.1 Create .vscode/mcp-server.json configuration
+- [x] 4.2 Document how to test in VS Code
+- [x] 4.3 Add sample environment configuration
 
 ## 5. Documentation & Testing
 - [ ] 5.1 Update README.md with setup instructions
