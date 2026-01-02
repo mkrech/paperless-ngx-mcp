@@ -2,7 +2,7 @@
   "servers": {
     "paperless-ngx": {
       "command": "uv",
-      "args": ["run", "python", "main.py"]
+      "args": ["run", "python", "/Users/dobby/_work/paperless-ngx-mcp/main.py"]
     }
   }
 }

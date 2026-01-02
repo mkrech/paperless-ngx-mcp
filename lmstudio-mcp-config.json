@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "paperless-ngx": {
+      "command": "uv",
+      "args": [
+        "run",
+        "python",
+        "main.py"
+      ],
+      "cwd": "/Users/dobby/_work/paperless-ngx-mcp"
+    }
+  }
+}
