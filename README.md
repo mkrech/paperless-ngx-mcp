@@ -75,14 +75,55 @@ The server runs in stdio mode by default, which is required for VS Code and Clau
 
 2. Restart VS Code or reload the MCP servers
 
-3. Use the `search_documents` tool in your chat
+3. Use the available tools in your chat
+
+**Available Tools:**
+- `search_documents` - Search for documents by query
+- `get_document` - Get complete details for a specific document by ID
+- `get_similar_documents` - Find documents similar to a given document
+- `list_tags` - Get all available tags
+- `autocomplete_search` - Get search term suggestions
 
 **Example queries:**
 - "Search my Paperless documents for 'invoice'"
 - "Find documents from Telekom"
 - "Show me all documents tagged with 'tax'"
 - "Search paperless documents for 'tax' on page 2 with 10 results per page"
+- "Get details for document 123"
+- "Find documents similar to document 456"
+- "What tags are available in my Paperless system?"
+- "Suggest search terms for 'tel'"
 - "Search all paperless documents" (empty query returns all documents)
+
+**Testing Results** ✅
+
+All tools have been tested and verified in VS Code (January 2, 2026):
+
+1. **`list_tags`** - Retrieved 9 tags with metadata
+   - Example result: 9 tags including "chris" (2 docs), "congstar" (0 docs), "deutschlandticket" (1 doc), "hardware" (2 docs), "michael" (9 docs), "mobilephone" (5 docs), "tax" (0 docs), "telekom" (2 docs), "versicherungen" (0 docs)
+   - Each tag includes: id, name, color (#hex), text_color, document_count
+
+2. **`get_document`** - Retrieved complete document details for ID 1
+   - Example: "AGB_congstar_Mobilfunktarife"
+   - Full content: 24,787 characters
+   - Metadata: correspondent, document_type, storage_path, tags
+   - Dates: created, modified, added
+   - All custom fields and notes included
+
+3. **`autocomplete_search`** - Generated search suggestions for "tel"
+   - Result: 10 suggestions ordered by TF/IDF relevance
+   - Examples: "tel", "telekom", "telefon", "telefonisch", "telefonische", "telefonieren", "telekommunikationsverträge", "teln", "tele", "telefonbucheintrag"
+   - Helps users discover relevant search terms from document index
+
+4. **`get_similar_documents`** - Found 9 documents similar to document ID 1
+   - Most similar results: Other congstar contracts (Leistungsbeschreibung, Preisliste)
+   - Related documents: Telekom contract, insurance documents, Deutschlandticket
+   - Uses Paperless-NGX's similarity algorithm based on content analysis
+
+5. **`search_documents`** - Previously tested and working
+   - Searches across titles, content, tags, correspondents
+   - Pagination support (page, page_size)
+   - Returns document previews with metadata
 
 **Getting your API Token:**
 1. Open Paperless-NGX web interface
@@ -95,7 +136,7 @@ The server runs in stdio mode by default, which is required for VS Code and Clau
 2. Restart VS Code or reload the MCP servers
 3. Check the VS Code Output panel for MCP logs
 4. Look for "Starting MCP server 'Paperless-NGX MCP Server'" message
-5. The server should discover 1 tool (`search_documents`)
+5. The server should discover 5 tools: `search_documents`, `get_document`, `get_similar_documents`, `list_tags`, `autocomplete_search`
 
 ### LM Studio (stdio mode) ✅ RECOMMENDED
 
